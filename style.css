@@ -1,0 +1,208 @@
+/* ===== VARIABLES CSS ===== */
+:root {
+  /* Couleurs */
+  --couleur-primaire: #3498db; /* Bleu */
+  --couleur-secondaire: #2ecc71; /* Vert */
+  --couleur-fond: #f5f5f5; /* Gris clair */
+  --couleur-texte: #333333; /* Gris foncé */
+  --couleur-blanc: #ffffff;
+
+  /* Typographie */
+  --police-principale: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Espacements */
+  --espacement-petit: 0.5rem;
+  --espacement-standard: 1rem;
+  --espacement-grand: 2rem;
+
+  /* Bordures */
+  --rayon-bordure: 8px;
+  --ombre-legere: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== STYLE DE BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--police-principale);
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  line-height: 1.6;
+}
+
+/* ===== EN-TÊTE ===== */
+header {
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-blanc);
+  padding: var(--espacement-grand);
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--espacement-petit);
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ===== NAVIGATION ===== */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--espacement-standard);
+  margin-top: var(--espacement-standard);
+}
+
+nav a {
+  color: var(--couleur-blanc);
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--espacement-petit) var(--espacement-standard);
+  border-radius: var(--rayon-bordure);
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== CONTENU PRINCIPAL ===== */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacement-grand);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  background-color: var(--couleur-blanc);
+  padding: var(--espacement-grand);
+  margin-bottom: var(--espacement-grand);
+  border-radius: var(--rayon-bordure);
+  box-shadow: var(--ombre-legere);
+}
+
+section h2 {
+  color: var(--couleur-primaire);
+  margin-bottom: var(--espacement-standard);
+  border-bottom: 2px solid var(--couleur-primaire);
+  padding-bottom: var(--espacement-petit);
+}
+
+section p {
+  margin-bottom: var(--espacement-standard);
+}
+
+/* ===== ARTICLES ===== */
+article {
+  margin-bottom: var(--espacement-standard);
+  padding: var(--espacement-standard);
+  background-color: #f9f9f9;
+  border-radius: var(--rayon-bordure);
+  border-left: 4px solid var(--couleur-secondaire);
+}
+
+article h3 {
+  color: var(--couleur-secondaire);
+  margin-bottom: var(--espacement-petit);
+}
+
+/* ===== BARRE LATÉRALE ===== */
+aside {
+  background-color: var(--couleur-blanc);
+  padding: var(--espacement-standard);
+  margin: var(--espacement-grand) auto;
+  max-width: 1200px;
+  border-radius: var(--rayon-bordure);
+  box-shadow: var(--ombre-legere);
+}
+
+aside h3 {
+  color: var(--couleur-primaire);
+  margin-bottom: var(--espacement-standard);
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside li {
+  margin-bottom: var(--espacement-petit);
+}
+
+aside a {
+  color: var(--couleur-primaire);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+aside a:hover {
+  color: var(--couleur-secondaire);
+}
+
+/* ===== PIED DE PAGE ===== */
+footer {
+  background-color: var(--couleur-texte);
+  color: var(--couleur-blanc);
+  text-align: center;
+  padding: var(--espacement-standard);
+  margin-top: var(--espacement-grand);
+}
+
+footer p {
+  margin: var(--espacement-petit) 0;
+}
+
+/* ===== FORMULAIRE ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacement-standard);
+  max-width: 600px;
+}
+
+form label {
+  font-weight: bold;
+  color: var(--couleur-texte);
+}
+
+form input,
+form textarea {
+  padding: var(--espacement-standard);
+  border: 1px solid #ddd;
+  border-radius: var(--rayon-bordure);
+  font-family: var(--police-principale);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--couleur-primaire);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+form button {
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-blanc);
+  padding: var(--espacement-standard);
+  border: none;
+  border-radius: var(--rayon-bordure);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
