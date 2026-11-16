@@ -35,11 +35,23 @@ body {
 }
 
 /* ===== EN-TÊTE ===== */
+/* ===== EN-TÊTE STICKY ===== */
 header {
   background-color: var(--couleur-primaire);
   color: var(--couleur-blanc);
   padding: var(--espacement-grand);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+
+  /* Ajouts pour sticky */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
@@ -61,17 +73,41 @@ nav ul {
   margin-top: var(--espacement-standard);
 }
 
+/* ===== NAVIGATION AVEC PSEUDO-CLASSES ===== */
 nav a {
   color: var(--couleur-blanc);
   text-decoration: none;
   font-weight: bold;
   padding: var(--espacement-petit) var(--espacement-standard);
   border-radius: var(--rayon-bordure);
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 nav a:hover {
   background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+nav a:focus {
+  outline: 2px solid var(--couleur-blanc);
+  outline-offset: 2px;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--couleur-blanc);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after {
+  width: 80%;
 }
 
 /* ===== CONTENU PRINCIPAL ===== */
@@ -95,6 +131,13 @@ section h2 {
   margin-bottom: var(--espacement-standard);
   border-bottom: 2px solid var(--couleur-primaire);
   padding-bottom: var(--espacement-petit);
+}
+/* Icône décorative devant chaque titre de section */
+section h2::before {
+  content: '▸ ';
+  color: var(--couleur-primaire);
+  font-size: 1.2em;
+  margin-right: 0.5rem;
 }
 
 section p {
@@ -205,4 +248,165 @@ form button {
 
 form button:hover {
   background-color: #2980b9;
+}
+
+/* ===== GRILLE DE COMPÉTENCES ===== */
+.grille-competences {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--espacement-standard);
+}
+
+/* ===== CARTE-COMPETENCE ===== */
+.carte-competence {
+  background-color: var(--couleur-fond);
+  padding: var(--espacement-standard);
+  border-radius: var(--rayon-bordure);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Couleurs alternées pour les cartes */
+.carte-competence:nth-child(odd) {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+}
+
+.carte-competence:nth-child(even) {
+  background: linear-gradient(135deg, #e4e8ec 0%, #f5f7fa 100%);
+}
+
+/* Première et dernière carte : bordure spéciale */
+.carte-competence:first-child {
+  border: 2px solid var(--couleur-primaire);
+}
+
+.carte-competence:last-child {
+  border: 2px solid var(--couleur-secondaire);
+}
+
+/* Effet de survol avancé */
+.carte-competence:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Effet de brillance au survol */
+.carte-competence::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.carte-competence:hover::before {
+  opacity: 1;
+  top: -100%;
+  left: -100%;
+}
+
+/* ===== BOUTON RETOUR EN HAUT ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background-color: var(--couleur-primaire);
+  color: var(--couleur-blanc);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: var(--couleur-secondaire);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablettes et petits écrans (max 768px) */
+@media (max-width: 768px) {
+  /* En-tête */
+  header {
+    min-height: 200px;
+    padding: var(--espacement-standard);
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  /* Navigation */
+  nav ul {
+    flex-direction: column;
+    gap: var(--espacement-petit);
+  }
+
+  /* Layout principal */
+  .layout-principal {
+    grid-template-columns: 1fr;
+    padding: var(--espacement-standard);
+  }
+
+  /* Galerie de compétences */
+  .grille-competences {
+    grid-template-columns: 1fr;
+  }
+
+  /* Bouton retour en haut */
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Mobiles (max 480px) */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: var(--espacement-standard);
+  }
+
+  section h2 {
+    font-size: 1.3rem;
+  }
+
+  .carte-competence {
+    padding: var(--espacement-petit);
+  }
 }
