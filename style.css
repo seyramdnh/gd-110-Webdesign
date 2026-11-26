@@ -1,10 +1,18 @@
 /* ===== VARIABLES CSS ===== */
 :root {
-  /* Couleurs */
-  --couleur-primaire: #3498db; /* Bleu */
-  --couleur-secondaire: #2ecc71; /* Vert */
-  --couleur-fond: #f5f5f5; /* Gris clair */
-  --couleur-texte: #333333; /* Gris foncé */
+  /* ----- THÈME ACTIF : FORÊT ----- */
+  --couleur-primaire: #27ae60;   /* Vert */
+  --couleur-secondaire: #f39c12; /* Orange */
+  --couleur-fond: #f0f7f0;       /* Vert très clair */
+  --couleur-texte: #2c3e50;      /* Bleu-gris foncé */
+
+  /* ----- THÈME OCÉAN (désactivé) -----
+  --couleur-primaire: #3498db;
+  --couleur-secondaire: #2ecc71;
+  --couleur-fond: #f5f5f5;
+  --couleur-texte: #333333;
+  */
+
   --couleur-blanc: #ffffff;
 
   /* Typographie */
@@ -35,7 +43,6 @@ body {
 }
 
 /* ===== EN-TÊTE ===== */
-/* ===== EN-TÊTE STICKY ===== */
 header {
   background-color: var(--couleur-primaire);
   color: var(--couleur-blanc);
@@ -46,11 +53,6 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 300px;
-
-  /* Ajouts pour sticky */
-  position: sticky;
-  top: 0;
-  z-index: 100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -132,6 +134,7 @@ section h2 {
   border-bottom: 2px solid var(--couleur-primaire);
   padding-bottom: var(--espacement-petit);
 }
+
 /* Icône décorative devant chaque titre de section */
 section h2::before {
   content: '▸ ';
@@ -267,6 +270,11 @@ form button:hover {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+/* Titres des cartes (exercice variables CSS) */
+.carte-competence h3 {
+  color: var(--couleur-secondaire);
 }
 
 /* Couleurs alternées pour les cartes */
