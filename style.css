@@ -1,10 +1,10 @@
 /* ===== VARIABLES CSS ===== */
 :root {
   /* ----- THÈME ACTIF : FORÊT ----- */
-  --couleur-primaire: #27ae60;   /* Vert */
-  --couleur-secondaire: #f39c12; /* Orange */
-  --couleur-fond: #f0f7f0;       /* Vert très clair */
-  --couleur-texte: #2c3e50;      /* Bleu-gris foncé */
+    --couleur-primaire: #e74c3c;
+  --couleur-secondaire: #f1c40f;
+  --couleur-fond: #fdf2e9;
+  --couleur-texte: #4a2c2a;
 
   /* ----- THÈME OCÉAN (désactivé) -----
   --couleur-primaire: #3498db;
